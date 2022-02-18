@@ -50,6 +50,10 @@ namespace BankAccount
         /// <returns>Returns updated balance after withdrawal</returns>
         public double Withdraw(double amount)
         {
+            if (amount <= 0 || amount > Balance)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
             Balance -= amount;
             return Balance; 
         }
